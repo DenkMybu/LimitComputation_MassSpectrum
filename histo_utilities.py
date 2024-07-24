@@ -1,10 +1,32 @@
 import numpy as np
-import ROOT as rt
+
+import ROOT
+from ROOT import *
+
 import root_numpy as rtnp
 import matplotlib.pyplot as plt
 from array import array
 
+import ctypes
+
 std_color_list = [1, 2, 4, 8, 6, 28, 43, 7, 25, 36, 30, 40, 42, 49, 46, 38, 32, 800, 600, 900, 870, 840]
+
+def make_smooth_graph(h2,h3):
+    h2 = ROOT.TGraph(h2)
+    h3 = ROOT.TGraph(h3)
+    npoints = h3.GetN()
+    h3.Set(2*npoints+2)
+    for b in range(npoints+2):
+        x1, y1 = (ctypes.c_double(), ctypes.c_double())
+        if b == 0:
+            h3.GetPoint(npoints-1, x1, y1)
+        elif b == 1:
+            h2.GetPoint(npoints-b, x1, y1)
+        else:
+            h2.GetPoint(npoints-b+1, x1, y1)
+        h3.SetPoint(npoints+b, x1, y1)
+    return h3
+
 
 def find_intersect(graph1,graph2):
     
@@ -86,9 +108,9 @@ def create_TH1D(x, name='h', title=None, binning=[None, None, None], weights=Non
             binning[0] = int((binning[2] - binning[1])/bin_w) + 5
 
         if len(binning) > 3 or bin_list:
-            h = rt.TH1D(name, title, len(binning)-1, array('f',binning))
+            h = ROOT.TH1D(name, title, len(binning)-1, array('f',binning))
         else:
-            h = rt.TH1D(name, title, binning[0], binning[1], binning[2])
+            h = ROOT.TH1D(name, title, binning[0], binning[1], binning[2])
     else:
         h = h2clone.Clone(name)
         h.SetTitle(title)
@@ -119,7 +141,7 @@ def create_prof1D(x, y, name='h', title=None, binning=[None, None, None], h2clon
                 bin_w = 1
             binning[0] = int((binning[2] - binning[1])/bin_w) + 5
 
-        h = rt.TH1D(name, title, binning[0], binning[1], binning[2])
+        h = ROOT.TH1D(name, title, binning[0], binning[1], binning[2])
     else:
         h = h2clone.Clone(name)
         h.SetTitle(title)
@@ -199,9 +221,9 @@ def create_TH2D(sample, name='h', title=None, binning=[None, None, None, None, N
                 bin_w = 1
             binning[3] = int((binning[5] - binning[4])/bin_w)
     if len(binning)==6:
-        h = rt.TH2D(name, title, binning[0], binning[1], binning[2], binning[3], binning[4], binning[5])
+        h = ROOT.TH2D(name, title, binning[0], binning[1], binning[2], binning[3], binning[4], binning[5])
     else:
-        h = rt.TH2D(name, title, binning[-2]-1, array('f',binning[:binning[-2]]), binning[-1]-1, array('f', binning[binning[-2]:-2]));
+        h = ROOT.TH2D(name, title, binning[-2]-1, array('f',binning[:binning[-2]]), binning[-1]-1, array('f', binning[binning[-2]:-2]));
 
 
 
@@ -248,8 +270,8 @@ def make_ratio_pEff(h_list_in, title = "", label = "", fit = False, in_tags = No
         if in_tags == None:
             tag.append(h.GetTitle())
 
-    c_out = rt.TCanvas("c_out_ratio"+label, "c_out_ratio"+label, 800, 800)
-    pad1 = rt.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
+    c_out = ROOT.TCanvas("c_out_ratio"+label, "c_out_ratio"+label, 800, 800)
+    pad1 = ROOT.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
     pad1.SetBottomMargin(0.03)
     pad1.SetLeftMargin(0.15)
     # pad1.SetGridx()
@@ -263,8 +285,8 @@ def make_ratio_pEff(h_list_in, title = "", label = "", fit = False, in_tags = No
 
     pad1.cd()
 
-    leg = rt.TLegend(0.68, 0.7, 0.9, 0.9)
-    leg = rt.TLegend(0.2, 0.6, 0.5, 0.9)
+    leg = ROOT.TLegend(0.68, 0.7, 0.9, 0.9)
+    leg = ROOT.TLegend(0.2, 0.6, 0.5, 0.9)
     #leg = rt.TLegend(0.7, 0.2, 0.9, 0.4)
     leg.SetBorderSize(0)
     leg.SetTextSize(0.045)
@@ -302,7 +324,7 @@ def make_ratio_pEff(h_list_in, title = "", label = "", fit = False, in_tags = No
 
 
     c_out.cd()
-    pad2 = rt.TPad("pad2", "pad2", 0, 0, 1, 0.3)
+    pad2 = ROOT.TPad("pad2", "pad2", 0, 0, 1, 0.3)
     pad2.SetTopMargin(0.03)
     pad2.SetBottomMargin(0.25)
     pad2.SetLeftMargin(0.15)
@@ -333,7 +355,7 @@ def make_ratio_pEff(h_list_in, title = "", label = "", fit = False, in_tags = No
     #band.SetYTitle('Ratio with nominal')
     band.SetTitle("")
     band.DrawCopy('E2')
-    ln = rt.TLine(band.GetXaxis().GetXmin(), 1, band.GetXaxis().GetXmax(), 1)
+    ln = ROOT.TLine(band.GetXaxis().GetXmin(), 1, band.GetXaxis().GetXmax(), 1)
     ln.SetLineWidth(3)
     ln.SetLineColor(h_list_in[ratio_index].GetLineColor())
     ln.DrawLine(band.GetXaxis().GetXmin(), 1, band.GetXaxis().GetXmax(), 1)
@@ -375,8 +397,8 @@ def make_ratio_plot(h_list_in, title = "", label = "", fit = False, in_tags = No
         if in_tags == None:
             tag.append(h.GetTitle())
 
-    c_out = rt.TCanvas("c_out_ratio"+label, "c_out_ratio"+label, 800, 800)
-    pad1 = rt.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
+    c_out = ROOT.TCanvas("c_out_ratio"+label, "c_out_ratio"+label, 800, 800)
+    pad1 = ROOT.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
     pad1.SetBottomMargin(0.03)
     pad1.SetLeftMargin(0.15)
     pad1.SetRightMargin(0.04)# pad2.SetGrid()
@@ -386,8 +408,8 @@ def make_ratio_plot(h_list_in, title = "", label = "", fit = False, in_tags = No
     pad1.Draw()
     pad1.cd()
 
-    leg = rt.TLegend(0.5, 0.65, 0.9, 0.92)
-    leg = rt.TLegend(0.7, 0.65, 0.9, 0.92)
+    leg = ROOT.TLegend(0.5, 0.65, 0.9, 0.92)
+    leg = ROOT.TLegend(0.7, 0.65, 0.9, 0.92)
 
     #leg = rt.TLegend(0.2, 0.7, 0.5, 0.9)
     # leg = rt.TLegend(0.7, 0.2, 0.9, 0.4)
@@ -422,7 +444,7 @@ def make_ratio_plot(h_list_in, title = "", label = "", fit = False, in_tags = No
             if ratio_index == 0:h.DrawCopy(draw_opt[i]+"same")
             else:h.DrawCopy(draw_opt[i])
             if len(text)>0:
-                l = rt.TLatex()
+                l = ROOT.TLatex()
                 l.SetTextSize(0.045)
                 if logy:l.DrawLatex((h.GetXaxis().GetXmax()-h.GetXaxis().GetXmin())*0.1+h.GetXaxis().GetXmin() , h.GetMaximum()/10, text)
                 else:l.DrawLatex((h.GetXaxis().GetXmax()-h.GetXaxis().GetXmin())*0.1+h.GetXaxis().GetXmin() , h.GetMaximum()*0.8, text)
@@ -434,7 +456,7 @@ def make_ratio_plot(h_list_in, title = "", label = "", fit = False, in_tags = No
     leg.Draw("same")
 
     c_out.cd()
-    pad2 = rt.TPad("pad2", "pad2", 0, 0, 1, 0.3)
+    pad2 = ROOT.TPad("pad2", "pad2", 0, 0, 1, 0.3)
     pad2.SetTopMargin(0.03)
     pad2.SetBottomMargin(0.25)
     pad2.SetLeftMargin(0.15)
@@ -467,7 +489,7 @@ def make_ratio_plot(h_list_in, title = "", label = "", fit = False, in_tags = No
     band.SetYTitle('Ratio with {}'.format(tag[ratio_index]))
     band.SetTitle("")
     band.DrawCopy('E2')
-    ln = rt.TLine(h.GetXaxis().GetXmin(), 1, h.GetXaxis().GetXmax(), 1)
+    ln = ROOT.TLine(h.GetXaxis().GetXmin(), 1, h.GetXaxis().GetXmax(), 1)
     ln.SetLineWidth(3)
     ln.SetLineColor(h_list_in[ratio_index].GetLineColor())
     ln.DrawLine(h.GetXaxis().GetXmin(), 1, h.GetXaxis().GetXmax(), 1)
@@ -542,10 +564,10 @@ def histo2D_projectionFit(histo2D, bins, gaus_thr, rebin, direc): #given the bin
     else:
         return None
     x_bins = [(x-1)*bw+left_edge for x in bins]
-    res = rt.TH1F('res','res', len(bins)-1,array( 'f', x_bins))
-    res_eff = rt.TH1F('res_eff','res_eff', len(bins)-1,array( 'f', x_bins))
-    scale = rt.TH1F('scale','scale',len(bins)-1,array( 'f', x_bins))
-    scale_eff = rt.TH1F('scale_eff','scale_eff',len(bins)-1,array( 'f', x_bins))
+    res = ROOT.TH1F('res','res', len(bins)-1,array( 'f', x_bins))
+    res_eff = ROOT.TH1F('res_eff','res_eff', len(bins)-1,array( 'f', x_bins))
+    scale = ROOT.TH1F('scale','scale',len(bins)-1,array( 'f', x_bins))
+    scale_eff = ROOT.TH1F('scale_eff','scale_eff',len(bins)-1,array( 'f', x_bins))
     for i in range(len(bins)-1):
         key = 'bin'+str(i)
         proj.append(histo2D.ProjectionX("h"+str(i),bins[i],bins[i+1]-1))
@@ -560,7 +582,7 @@ def histo2D_projectionFit(histo2D, bins, gaus_thr, rebin, direc): #given the bin
         h1 = proj[i]
         hnew = h1.Clone("hnew")
         hnew = hnew.Rebin(rebin)
-        SS = rt.TSpectrum()
+        SS = ROOT.TSpectrum()
         n_pks = SS.Search(hnew, 0.1, "", 0.5)
         x_pos = SS.GetPositionX()
         y_pos = SS.GetPositionY()
@@ -620,8 +642,8 @@ def create_TGraph(x,y,ex=[],ey=[], axis_title = ['','']):
     if len(ex)>0 and not len(x)==len(ex):
         print("leng of ex and x are not equal!")
 
-    if len(ex)==0:gr = rt.TGraph(len(x),x,y)
-    else: gr = rt.TGraphErrors(len(x),x,y,ex,ey)
+    if len(ex)==0:gr = ROOT.TGraph(len(x),x,y)
+    else: gr = ROOT.TGraphErrors(len(x),x,y,ex,ey)
     if len(axis_title) == 2:
     	gr.GetXaxis().SetTitle(axis_title[0])
     	gr.GetYaxis().SetTitle(axis_title[1])

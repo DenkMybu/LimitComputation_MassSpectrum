@@ -31,8 +31,8 @@ def setColorAndMarkerGr(gr,a,b,size=1):
 searchRegion='SRs'
 labelSR=searchRegion+'_test'
 labelSignal="ppStau"
-labelSignal="gluino"
-labelSignal="stop"
+#labelSignal="gluino"
+#labelSignal="stop"
 
 xsec_list = 'xSec.dat'
 models = ['HSCPgluinoOnlyNeutral', 'gluino', 'gmsbStau', 'pairStau', 'stopOnlyNeutral', 'stop', 'tauPrimeCharge1e', 'tauPrimeCharge2e']
@@ -70,6 +70,7 @@ for m in models:
     inds = mass.argsort()
     signal_names[m] = list(np.array(signal_names[m])[inds])
 
+
 print 'sample names, signal names',sample_names, signal_names
 
 
@@ -87,27 +88,32 @@ limitTrees_99 =OrderedDict()
 dataCards_99 = OrderedDict()
 limits_99 = OrderedDict()
 
+
 limitTrees_999 =OrderedDict()
 dataCards_999 = OrderedDict()
 limits_999 = OrderedDict()
 
+'''
 limitTrees_999muMinus2sigma =OrderedDict()
 dataCards_999muMinus2sigma = OrderedDict()
 limits_999muMinus2sigma = OrderedDict()
+'''
 
 
 
-dataCardDirSR1 = 'datacards_test_SR1_5may_v3/'
-limitDirSR1 = 'limitTrees_test_SR1_5may_v3/'
+dataCardDirSR1 = 'datacards_SR1_test_UnB_v4_Raph_withGoodSignals/'
+limitDirSR1 = 'limitTrees_SR1_test_UnB_v4_Raph_withGoodSignals/'
 
-dataCardDirSR2 = 'datacards_test_SR2_5may_v3/'
-limitDirSR2 = 'limitTrees_test_SR2_5may_v3/'
+dataCardDirSR2 = 'datacards_SR2_test_UnB_v4_Raph_withGoodSignals/'
+limitDirSR2 = 'limitTrees_SR2_test_UnB_v4_Raph_withGoodSignals/'
 
-dataCardDirSR3 = 'datacards_test_SR3_5may_v3/'
-limitDirSR3 = 'limitTrees_test_SR3_5may_v3/'
+dataCardDirSR3 = 'datacards_SR3_test_UnB_v4_Raph_withGoodSignals/'
+limitDirSR3 = 'limitTrees_SR3_test_UnB_v4_Raph_withGoodSignals/'
 
-dataCardDirSR3_muMinus2sigma = 'datacards_test_SR3_5june_muMinus2sigma/'
-limitDirSR3_muMinus2sigma = 'limitTrees_test_SR3_5june_muMinus2sigma/'
+#dataCardDirSR3 = 'datacards_SR3_UnB_v4/'
+#limitDirSR3 = 'limitTrees_SR3_UnB_v4/'
+#dataCardDirSR3_muMinus2sigma = 'datacards_test_SR3_5june_muMinus2sigma/'
+#limitDirSR3_muMinus2sigma = 'limitTrees_test_SR3_5june_muMinus2sigma/'
 
 for s in signal:
     limitTrees_90[s] = {}
@@ -116,8 +122,8 @@ for s in signal:
     dataCards_99[s] = {}
     limitTrees_999[s] = {}
     dataCards_999[s] = {}
-    limitTrees_999muMinus2sigma[s] = {}
-    dataCards_999muMinus2sigma[s] = {}
+    #limitTrees_999muMinus2sigma[s] = {}
+    #dataCards_999muMinus2sigma[s] = {}
     if 'gluino' in s:
         name = s.replace('HSCPg', 'G')
     elif 'Stau' in s:
@@ -125,16 +131,20 @@ for s in signal:
     elif 'stop' in s:
         name = s.replace('HSCPs', 'S')
     name = name.replace('_M-', '')
+
     dataCards_90[s] = dataCardDirSR1 + '{}_2018.txt'.format(name)
     dataCards_99[s] = dataCardDirSR2 + '{}_2018.txt'.format(name)
     dataCards_999[s] = dataCardDirSR3 + '{}_2018.txt'.format(name)
-    dataCards_999muMinus2sigma[s] = dataCardDirSR3_muMinus2sigma + '{}_2018.txt'.format(name)
+    #dataCards_999muMinus2sigma[s] = dataCardDirSR3_muMinus2sigma + '{}_2018.txt'.format(name)
     #print dataCards_90[s]
     #print limitDir + 'higgsCombine.{}'.format(name) + '.AsymptoticLimits.mH120.root'
-    limitTrees_90[s] = limitDirSR1 + 'higgsCombine.{}'.format(name) + '.Significance.mH120.root'
-    limitTrees_99[s] = limitDirSR2 + 'higgsCombine.{}'.format(name) + '.Significance.mH120.root'
-    limitTrees_999[s] = limitDirSR3 + 'higgsCombine.{}'.format(name) + '.Significance.mH120.root'
-    limitTrees_999muMinus2sigma[s] = limitDirSR3_muMinus2sigma + 'higgsCombine.{}'.format(name) + '.Significance.mH120.root'
+
+    limitTrees_90[s] = limitDirSR1 + 'higgsCombine.{}'.format(name) + '_2018.Significance.mH120.root'
+    limitTrees_99[s] = limitDirSR2 + 'higgsCombine.{}'.format(name) + '_2018.Significance.mH120.root'
+    limitTrees_999[s] = limitDirSR3 + 'higgsCombine.{}'.format(name) + '_2018.Significance.mH120.root'
+    print(limitTrees_999[s])
+    #limitTrees_999muMinus2sigma[s] = limitDirSR3_muMinus2sigma + 'higgsCombine.{}'.format(name) + '.Significance.mH120.root'
+
 
 for i,m in enumerate(limitTrees_90.keys()):
     if not os.path.isfile(dataCards_90[m]):
@@ -157,13 +167,14 @@ for i,m in enumerate(limitTrees_999.keys()):
         T = uproot.open(limitTrees_999[m])['limit']
         limits_999[m] = np.array(T.array('limit'))
 
+'''
 for i,m in enumerate(limitTrees_999muMinus2sigma.keys()):
     if not os.path.isfile(dataCards_999muMinus2sigma[m]):
         continue
     if len(uproot.open(limitTrees_999muMinus2sigma[m]).keys()) == 2:
         T = uproot.open(limitTrees_999muMinus2sigma[m])['limit']
         limits_999muMinus2sigma[m] = np.array(T.array('limit'))
-
+'''
 h = {}
 
 c=rt.TCanvas()
@@ -173,33 +184,39 @@ for i, m in enumerate(signal_names.keys()):
     ySR1 = []
     ySR2 = []
     ySR3 = []
-    ySR3muMinus2sigma = []
+    #ySR3muMinus2sigma = []
+
     for key in limits_90.keys():
         if m in key and len(limits_90[key])>0:
             if (('gluino' in key) or ('Stau' in key) or ('stop' in key)):
                 ySR1.append(limits_90[key][0])
             x.append(int(key[key.find('M-')+2:]))
+
     for key in limits_99.keys():
         if m in key and len(limits_99[key])>0:
             if (('gluino' in key) or ('Stau' in key) or ('stop' in key)):
                 ySR2.append(limits_99[key][0])
             #x.append(int(key[key.find('M-')+2:]))
+
     for key in limits_999.keys():
         if m in key and len(limits_999[key])>0:
             if (('gluino' in key) or ('Stau' in key) or ('stop' in key)):
                 ySR3.append(limits_999[key][0])
+                print("Appending {}".format(limits_999[key][0]))
             #x.append(int(key[key.find('M-')+2:]))
+    '''
     for key in limits_999muMinus2sigma.keys():
         if m in key and len(limits_999muMinus2sigma[key])>0:
             if (('gluino' in key) or ('Stau' in key) or ('stop' in key)):
                 ySR3muMinus2sigma.append(limits_999muMinus2sigma[key][0])
             #x.append(int(key[key.find('M-')+2:]))
-
+    '''
+    print("len x : ", len(x))
     if len(x) ==0 :continue
-    #h[m+'_SR1'] = create_TGraph(x,ySR1,  axis_title=['Mass [GeV]', 'Significance'])
-    #h[m+'_SR2'] = create_TGraph(x,ySR2,  axis_title=['Mass [GeV]', 'Significance'])
+    h[m+'_SR1'] = create_TGraph(x,ySR1,  axis_title=['Mass [GeV]', 'Significance'])
+    h[m+'_SR2'] = create_TGraph(x,ySR2,  axis_title=['Mass [GeV]', 'Significance'])
     h[m+'_SR3'] = create_TGraph(x,ySR3,  axis_title=['Mass [GeV]', 'Significance'])
-    h[m+'_SR3muMinus2sigma'] = create_TGraph(x,ySR3muMinus2sigma,  axis_title=['Mass [GeV]', 'Significance'])
+    #h[m+'_SR3muMinus2sigma'] = create_TGraph(x,ySR3muMinus2sigma,  axis_title=['Mass [GeV]', 'Significance'])
 
 leg=rt.TLegend(0.7,0.7,0.9,0.9)
 
@@ -225,8 +242,13 @@ for i,m in enumerate(h.keys()):
         h[m].Draw("AP")
     else:
         h[m].Draw("P")
+    h[m].SetTitle("significance_expected_title")
+    h[m].SetName("significance_expected")
     h[m].SetMinimum(0)
-    h[m].SetMaximum(15)
+    if labelSignal=="ppStau":
+        h[m].SetMaximum(15)
+    else:
+        h[m].SetMaximum(15)
 
 leg.Draw("same")
 c.SetGridx()
@@ -246,7 +268,7 @@ c.SetTickx(1)
 
 c.Draw()
 
-ofile_name="significance_plots_dir/significance_"+labelSignal+"_"+labelSR
+ofile_name="significance_plots_dir_RAPH_SR3_UnB_v4/significance_"+labelSignal+"_"+labelSR
 
 c.SaveAs(ofile_name+".root")
 c.SaveAs(ofile_name+".pdf")

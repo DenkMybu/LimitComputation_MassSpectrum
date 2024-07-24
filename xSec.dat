@@ -29,23 +29,23 @@ WJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-pythia8         61526.7
 #### https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVgluglu#NLO_NLL
 #### if mass < 500 GeV, use NLO+NLL
 #### if mass >= 500 GeV, use NNLO + NNLL
-HSCPgluinoOnlyNeutral_M-200_TuneCP5_13TeV-pythia8             3574.52
-HSCPgluinoOnlyNeutral_M-400_TuneCP5_13TeV-pythia8             98.0459
-HSCPgluinoOnlyNeutral_M-800_TuneCP5_13TeV-pythia8             1.81
-HSCPgluinoOnlyNeutral_M-1000_TuneCP5_13TeV-pythia8            0.385
-HSCPgluinoOnlyNeutral_M-1200_TuneCP5_13TeV-pythia8            0.0985
-HSCPgluinoOnlyNeutral_M-1400_TuneCP5_13TeV-pythia8            0.0284
-HSCPgluinoOnlyNeutral_M-1600_TuneCP5_13TeV-pythia8            0.00887
-HSCPgluinoOnlyNeutral_M-1800_TuneCP5_13TeV-pythia8            0.00293
-HSCPgluinoOnlyNeutral_M-2000_TuneCP5_13TeV-pythia8            0.00101
-HSCPgluinoOnlyNeutral_M-2200_TuneCP5_13TeV-pythia8            0.000356
-HSCPgluinoOnlyNeutral_M-2400_TuneCP5_13TeV-pythia8            0.000128
-HSCPgluinoOnlyNeutral_M-2600_TuneCP5_13TeV-pythia8            4.62e-05
+#HSCPgluinoOnlyNeutral_M-200_TuneCP5_13TeV-pythia8             3574.52
+#HSCPgluinoOnlyNeutral_M-400_TuneCP5_13TeV-pythia8             98.0459
+#HSCPgluinoOnlyNeutral_M-800_TuneCP5_13TeV-pythia8             1.81
+#HSCPgluinoOnlyNeutral_M-1000_TuneCP5_13TeV-pythia8            0.385
+#HSCPgluinoOnlyNeutral_M-1200_TuneCP5_13TeV-pythia8            0.0985
+#HSCPgluinoOnlyNeutral_M-1400_TuneCP5_13TeV-pythia8            0.0284
+#HSCPgluinoOnlyNeutral_M-1600_TuneCP5_13TeV-pythia8            0.00887
+#HSCPgluinoOnlyNeutral_M-1800_TuneCP5_13TeV-pythia8            0.00293
+#HSCPgluinoOnlyNeutral_M-2000_TuneCP5_13TeV-pythia8            0.00101
+#HSCPgluinoOnlyNeutral_M-2200_TuneCP5_13TeV-pythia8            0.000356
+#HSCPgluinoOnlyNeutral_M-2400_TuneCP5_13TeV-pythia8            0.000128
+#HSCPgluinoOnlyNeutral_M-2600_TuneCP5_13TeV-pythia8            4.62e-05
 
 #HSCPgluino_M-200_TuneCP5_13TeV-pythia8                        3574.52
 #HSCPgluino_M-400_TuneCP5_13TeV-pythia8                        98.0459
 #HSCPgluino_M-500_TuneCP5_13TeV-pythia8                        33.8
-HSCPgluino_M-800_TuneCP5_13TeV-pythia8                        1.81
+#HSCPgluino_M-800_TuneCP5_13TeV-pythia8                        1.81
 HSCPgluino_M-1000_TuneCP5_13TeV-pythia8                       0.385
 HSCPgluino_M-1400_TuneCP5_13TeV-pythia8                       0.0284
 HSCPgluino_M-1600_TuneCP5_13TeV-pythia8                       0.00887
@@ -71,8 +71,8 @@ HSCPgmsbStau_M-745_TuneCP5_13TeV-pythia8        1.9e-04
 HSCPgmsbStau_M-871_TuneCP5_13TeV-pythia8        6.9e-05
 
 
-HSCPpairStau_M-200_TuneCP5_13TeV-pythia8        3.0e-02
-HSCPpairStau_M-247_TuneCP5_13TeV-pythia8        1.3e-02
+#HSCPpairStau_M-200_TuneCP5_13TeV-pythia8        3.0e-02
+#HSCPpairStau_M-247_TuneCP5_13TeV-pythia8        1.3e-02
 HSCPpairStau_M-308_TuneCP5_13TeV-pythia8        4.8e-03
 HSCPpairStau_M-432_TuneCP5_13TeV-pythia8        1.2e-03
 HSCPpairStau_M-557_TuneCP5_13TeV-pythia8        3.9e-04
@@ -85,32 +85,33 @@ HSCPpairStau_M-1409_TuneCP5_13TeV-pythia8       5.7e-07
 HSCPpairStau_M-1599_TuneCP5_13TeV-pythia8       5.7e-07
 
 ### stop xsec: https://github.com/fuenfundachtzig/xsec/blob/master/json/pp13_stopsbottom_NNLO%2BNNLL.json
-HSCPstopOnlyNeutral_M-1000_TuneCP5_13TeV-pythia8                      0.00683
-HSCPstopOnlyNeutral_M-100_TuneCP5_13TeV-pythia8                      1770.0
-HSCPstopOnlyNeutral_M-1200_TuneCP5_13TeV-pythia8                      0.0017
-HSCPstopOnlyNeutral_M-1400_TuneCP5_13TeV-pythia8                      0.000473
-HSCPstopOnlyNeutral_M-1600_TuneCP5_13TeV-pythia8                      0.000142
-HSCPstopOnlyNeutral_M-1800_TuneCP5_13TeV-pythia8                      4.51e-05
-HSCPstopOnlyNeutral_M-2000_TuneCP5_13TeV-pythia8                      1.48e-05
-HSCPstopOnlyNeutral_M-200_TuneCP5_13TeV-pythia8                      75.5
-HSCPstopOnlyNeutral_M-2200_TuneCP5_13TeV-pythia8                      5e-06
-HSCPstopOnlyNeutral_M-2400_TuneCP5_13TeV-pythia8                      1.71e-06
-HSCPstopOnlyNeutral_M-2600_TuneCP5_13TeV-pythia8                      5.9e-07
-HSCPstopOnlyNeutral_M-400_TuneCP5_13TeV-pythia8                      2.15
-HSCPstopOnlyNeutral_M-500_TuneCP5_13TeV-pythia8                      0.609
-HSCPstopOnlyNeutral_M-800_TuneCP5_13TeV-pythia8                      0.0326
+
+#HSCPstopOnlyNeutral_M-1000_TuneCP5_13TeV-pythia8                      0.00683
+#HSCPstopOnlyNeutral_M-100_TuneCP5_13TeV-pythia8                      1770.0
+#HSCPstopOnlyNeutral_M-1200_TuneCP5_13TeV-pythia8                      0.0017
+#HSCPstopOnlyNeutral_M-1400_TuneCP5_13TeV-pythia8                      0.000473
+#HSCPstopOnlyNeutral_M-1600_TuneCP5_13TeV-pythia8                      0.000142
+#HSCPstopOnlyNeutral_M-1800_TuneCP5_13TeV-pythia8                      4.51e-05
+#HSCPstopOnlyNeutral_M-2000_TuneCP5_13TeV-pythia8                      1.48e-05
+#HSCPstopOnlyNeutral_M-200_TuneCP5_13TeV-pythia8                      75.5
+#HSCPstopOnlyNeutral_M-2200_TuneCP5_13TeV-pythia8                      5e-06
+#HSCPstopOnlyNeutral_M-2400_TuneCP5_13TeV-pythia8                      1.71e-06
+#HSCPstopOnlyNeutral_M-2600_TuneCP5_13TeV-pythia8                      5.9e-07
+#HSCPstopOnlyNeutral_M-400_TuneCP5_13TeV-pythia8                      2.15
+#HSCPstopOnlyNeutral_M-500_TuneCP5_13TeV-pythia8                      0.609
+#HSCPstopOnlyNeutral_M-800_TuneCP5_13TeV-pythia8                      0.0326
 HSCPstop_M-1000_TuneCP5_13TeV-pythia8                      0.00683
-HSCPstop_M-100_TuneCP5_13TeV-pythia8                      1770.0
+#HSCPstop_M-100_TuneCP5_13TeV-pythia8                      1770.0
 HSCPstop_M-1200_TuneCP5_13TeV-pythia8                      0.0017
 HSCPstop_M-1400_TuneCP5_13TeV-pythia8                      0.000473
 HSCPstop_M-1600_TuneCP5_13TeV-pythia8                      0.000142
 HSCPstop_M-1800_TuneCP5_13TeV-pythia8                      4.51e-05
 HSCPstop_M-2000_TuneCP5_13TeV-pythia8                      1.48e-05
-HSCPstop_M-200_TuneCP5_13TeV-pythia8                      75.5
+#HSCPstop_M-200_TuneCP5_13TeV-pythia8                      75.5
 HSCPstop_M-2200_TuneCP5_13TeV-pythia8                      5e-06
 HSCPstop_M-2400_TuneCP5_13TeV-pythia8                      1.71e-06
 HSCPstop_M-2600_TuneCP5_13TeV-pythia8                      5.9e-07
-HSCPstop_M-400_TuneCP5_13TeV-pythia8                      2.15
+#HSCPstop_M-400_TuneCP5_13TeV-pythia8                      2.15
 #HSCPstop_M-500_TuneCP5_13TeV-pythia8                      0.609
 HSCPstop_M-800_TuneCP5_13TeV-pythia8                      0.0326
 
