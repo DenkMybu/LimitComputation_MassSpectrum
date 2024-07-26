@@ -268,7 +268,8 @@ def savePredShape(outfile, h_pred, label):
 
 if __name__ == '__main__':
 
-    ZPrime_c = True
+    ZPrime_c = False
+    ZPrime_caro = True
     # load mass distributions
     fpath =OrderedDict()
     fpathPred =OrderedDict()
@@ -278,9 +279,9 @@ if __name__ == '__main__':
 
     regionSignal='SR3'
     regionBckg=''
-    systSignal="Gluino"
+    #systSignal="Gluino"
     #systSignal="Stop"
-    #systSignal="pairStau"
+    systSignal="pairStau"
     searchRegion=regionSignal
     
     if(regionSignal=='SR1'):
@@ -315,6 +316,7 @@ if __name__ == '__main__':
     # load root file
     #pathSignal = "/opt/sbg/cms/ui3_data1/dapparu/HSCP/Production/"
     codeVersionSignal='80p1'
+    codeVersionSignal='Caro3'
     pathSignal = "/opt/sbg/cms/ui3_data1/rhaeberl/HSCP_prod/V"+codeVersionSignal+"/"
     pathPred = "/opt/sbg/cms/ui3_data1/rhaeberl/HSCP_prod/Dylan/Unblinded/"
 
@@ -324,7 +326,7 @@ if __name__ == '__main__':
 
  
     #fpath['Gluino500_2018'] = pathSignal + 'HSCPgluino_V'+codeVersionSignal+'/Merged_HSCPgluino/HSCPgluino_M-500_merged.root'
-
+    '''
     fpath['Gluino800_2018'] = pathSignal+'HSCPgluino_V'+codeVersionSignal+'/Merged_HSCPgluino/HSCPgluino_M-800_merged.root'
 
     fpath['Gluino1000_2018'] = pathSignal+'HSCPgluino_V'+codeVersionSignal+'/Merged_HSCPgluino/HSCPgluino_M-1000_merged.root'
@@ -385,6 +387,7 @@ if __name__ == '__main__':
     fpath['gmsbStau1029_2018'] = pathSignal+'HSCPgmsbStau_V'+codeVersionSignal+'/Merged_HSCPgmsbStau/HSCPgmsbStau_M-1029_merged.root'
 
     if(ZPrime_c): 
+
         fpath['tauPrime2e-200-ZPrime-3000_2018'] = pathSignal+'HSCPtauPrime2e-200_V'+codeVersionSignal+'/Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-3000_merged.root'
         fpath['tauPrime2e-200-ZPrime-4000_2018'] = pathSignal+'HSCPtauPrime2e-200_V'+codeVersionSignal+'/Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-4000_merged.root'
         fpath['tauPrime2e-200-ZPrime-5000_2018'] = pathSignal+'HSCPtauPrime2e-200_V'+codeVersionSignal+'/Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-5000_merged.root'
@@ -474,7 +477,94 @@ if __name__ == '__main__':
         fpath['tauPrime2e-1400-ZPrimeSSM-6000_2018'] = pathSignal+'HSCPtauPrime2e-1400_V'+codeVersionSignal+'/Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-6000_merged.root'
         fpath['tauPrime2e-1400-ZPrimeSSM-7000_2018'] = pathSignal+'HSCPtauPrime2e-1400_V'+codeVersionSignal+'/Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-7000_merged.root'
 
+    '''
+    if(ZPrime_caro): 
 
+        fpath['tauPrime2e-200-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-200-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-200-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-200-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-200-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrime_M-7000_merged.root'
+
+        fpath['tauPrime2e-400-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-400-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-400-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-400-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-400-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrime_M-7000_merged.root'
+    
+        fpath['tauPrime2e-600-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-600-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-600-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-600-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-600-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrime_M-7000_merged.root'
+
+        #fpath['tauPrime2e-800-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-800-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-800-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-800-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-800-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrime_M-7000_merged.root'
+
+        fpath['tauPrime2e-1000-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-1000-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrime_M-4000_merged.root'
+        #fpath['tauPrime2e-1000-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-1000-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-1000-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrime_M-7000_merged.root'
+
+        fpath['tauPrime2e-1200-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-1200-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-1200-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrime_M-5000_merged.root'
+        fpath['tauPrime2e-1200-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-1200-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrime_M-7000_merged.root'
+
+        fpath['tauPrime2e-1400-ZPrime-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrime_M-3000_merged.root'
+        fpath['tauPrime2e-1400-ZPrime-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrime_M-4000_merged.root'
+        fpath['tauPrime2e-1400-ZPrime-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrime_M-5000_merged.root'
+        #fpath['tauPrime2e-1400-ZPrime-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrime_M-6000_merged.root'
+        fpath['tauPrime2e-1400-ZPrime-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrime_M-7000_merged.root'
+
+        #FOR Z SSM
+        fpath['tauPrime2e-200-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-200-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-200-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-200-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-200-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-200/HSCPtauPrimeCharge2e_M-200_ZPrimeSSM_M-7000_merged.root'
+
+        fpath['tauPrime2e-400-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-400-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-400-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-400-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-400-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-400/HSCPtauPrimeCharge2e_M-400_ZPrimeSSM_M-7000_merged.root'
+    
+        fpath['tauPrime2e-600-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-600-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-600-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-600-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-600-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-600/HSCPtauPrimeCharge2e_M-600_ZPrimeSSM_M-7000_merged.root'
+
+        #fpath['tauPrime2e-800-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-800-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-800-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-800-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-800-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-800/HSCPtauPrimeCharge2e_M-800_ZPrimeSSM_M-7000_merged.root'
+
+        fpath['tauPrime2e-1000-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-1000-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrimeSSM_M-4000_merged.root'
+        #fpath['tauPrime2e-1000-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-1000-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-1000-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1000/HSCPtauPrimeCharge2e_M-1000_ZPrimeSSM_M-7000_merged.root'
+
+
+        fpath['tauPrime2e-1200-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-1200-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-1200-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrimeSSM_M-5000_merged.root'
+        fpath['tauPrime2e-1200-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-1200-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1200/HSCPtauPrimeCharge2e_M-1200_ZPrimeSSM_M-7000_merged.root'
+
+        fpath['tauPrime2e-1400-ZPrimeSSM-3000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-3000_merged.root'
+        fpath['tauPrime2e-1400-ZPrimeSSM-4000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-4000_merged.root'
+        fpath['tauPrime2e-1400-ZPrimeSSM-5000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-5000_merged.root'
+        #fpath['tauPrime2e-1400-ZPrimeSSM-6000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-6000_merged.root'
+        fpath['tauPrime2e-1400-ZPrimeSSM-7000_2018'] = pathSignal+'Merged_HSCPtauPrime2e-1400/HSCPtauPrimeCharge2e_M-1400_ZPrimeSSM_M-7000_merged.root'
 
 
     idirSignal='HSCParticleAnalyzer/BaseName/'
@@ -503,6 +593,14 @@ if __name__ == '__main__':
     massPlotsSignal['K_down'] = idirSignal+'PostS_'+searchRegion+'_Mass_K_down1'
     massPlotsSignal['C_up'] = idirSignal+'PostS_'+searchRegion+'_Mass_C_up1'
     massPlotsSignal['C_down'] = idirSignal+'PostS_'+searchRegion+'_Mass_C_down1'
+    massPlotsSignal['MutrigSF_up'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonTriggerSF_up'
+    massPlotsSignal['MutrigSF_down'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonTriggerSF_down'
+    massPlotsSignal['MurecoSF_up'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonRecoSF_up'
+    massPlotsSignal['MurecoSF_down'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonRecoSF_down'
+    massPlotsSignal['MuidSF_up'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonIdSF_up'
+    massPlotsSignal['MuidSF_down'] = idirSignal+'PostS_'+searchRegion+'_Mass_MuonIdSF_down'
+
+
 
     year='2017'
     nPE='200'
@@ -968,7 +1066,7 @@ if __name__ == '__main__':
        'tauPrime2e-1400-ZPrimeSSM-7000_2018': 7000,
     }
     
-    outDataCardsDir = "datacards_"+searchRegion+"_test_UnB_v4_Raph_withGoodSignals_TESTCARO/"
+    outDataCardsDir = "datacards_"+searchRegion+"_test_UnB_v4_Raph_withGoodSignals_newSys/"
     #outDataCardsDir = "datacards_"+searchRegion+"_test_UnB_v4_Raph_largeWindows_withGoodSignals/"
     os.system("mkdir -p {0}".format(outDataCardsDir))
 
@@ -1392,7 +1490,10 @@ if __name__ == '__main__':
         makeYieldFile(text_file_tex_2017,name[signal],bkg,bckg_up,bckg_down,obs_2017,signal_yield_norm,signal_up,signal_down)
         
 
-
+    print('x = ')
+    print(x)
+    print('yPU = ')
+    print(yPU)
     grPU = create_TGraph(x, yPU, axis_title=['target mass [GeV]', 'Systematics uncertainties [%]'])
     grFpix = create_TGraph(x, yFpix, axis_title=['target mass [GeV]', 'Systematics uncertainties [%]'])
     grGstrip = create_TGraph(x, yGstrip, axis_title=['target mass [GeV]', 'Systematics uncertainties [%]'])
