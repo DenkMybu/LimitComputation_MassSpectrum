@@ -51,12 +51,8 @@ Create ```HSCPLimit``` repository:
 mkdir HSCPLimit
 cd HSCPLimit
 ```
-And finally install HSCP scripts: 
 
-```bash 
-git clone git@github.com:dapparu/LimitComputation_MassSpectrum.git LimitComputation_MassSpectrum
-cd LimitComputation_MassSpectrum
-```
+You are now ready to create the datacards in the LimitComputation_MassSpectrum directory using the available scripts. 
 
 ## Import the cross-sections
 
