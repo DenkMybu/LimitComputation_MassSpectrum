@@ -25,7 +25,9 @@ crossSectionArray = {
 
 #inputFolder = "./2DAlpha_CodeV46p3_1Dfrom2DNoExtrapol_ZPrimeTauPrime/"
 #inputFolder = "./2DAlpha_CodeV46p2_1Dfrom2DNoExtrapol_ZPrimeTauPrimeWithSSM/"
-inputFolder = "/opt/sbg/cms/ui6_data1/rhaeberl/CMSSW_11_3_4/src/HSCPLimit/LimitComputation_MassSpectrum/limitTrees_tamas/tst_hybrid_tamas/"
+#inputFolder = "/opt/sbg/cms/ui6_data1/rhaeberl/CMSSW_11_3_4/src/HSCPLimit/LimitComputation_MassSpectrum/limitTrees_tamas/tst_hybrid_tamas/"
+#With new systematics
+inputFolder = "/opt/sbg/cms/ui6_data1/rhaeberl/CMSSW_11_3_4/src/HSCPLimit/LimitComputation_MassSpectrum/limitTrees_SR3_test_UnB_v4_Raph_withGoodSignals_hybrid_newSys/"
 
 outputPoints = []
 
@@ -34,7 +36,9 @@ for ZPrimeMass in [3000,4000,5000,6000,7000]:
 	for tauPrimeMass in [200,400,600,800,1000,1200,1400]:
 
 		#tmpName = "tauPrime2e-{}-ZPrimeSSM-{}_2018".format(tauPrimeMass,ZPrimeMass)
-		tmpName = "Signal_tauPrime2e-{}-ZPrime-{}-0x0_area_card_2018".format(tauPrimeMass,ZPrimeMass)
+		tmpName = "tauPrime2e-{}-ZPrime-{}_2018".format(tauPrimeMass,ZPrimeMass)
+                #Here for TAMAS version
+		#tmpName = "Signal_tauPrime2e-{}-ZPrime-{}-0x0_area_card_2018".format(tauPrimeMass,ZPrimeMass)
 		inputFileName = "{}/higgsCombine.{}.HybridNew.all.mH120.root".format(inputFolder,tmpName)
 		inputFile = ROOT.TFile(inputFileName)
 		inputTree = inputFile.Get("limit")

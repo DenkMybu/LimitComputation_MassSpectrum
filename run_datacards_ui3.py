@@ -184,6 +184,18 @@ if __name__ == '__main__':
         'tauPrime2e-1400-ZPrimeSSM-7000_2018',
     ]
 
+    samples = [
+        'tauPrime2e-600-ZPrime-3000_2018',
+        'tauPrime2e-600-ZPrime-4000_2018',
+        'tauPrime2e-600-ZPrime-5000_2018',
+        'tauPrime2e-600-ZPrime-6000_2018',
+        'tauPrime2e-600-ZPrime-7000_2018',
+        'tauPrime2e-600-ZPrimeSSM-3000_2018',
+        'tauPrime2e-600-ZPrimeSSM-4000_2018',
+        'tauPrime2e-600-ZPrimeSSM-5000_2018',
+        'tauPrime2e-600-ZPrimeSSM-6000_2018',
+        'tauPrime2e-600-ZPrimeSSM-7000_2018',
+    ]
 
 
     def task(sample):
@@ -203,7 +215,7 @@ if __name__ == '__main__':
             namep2sig = name+"_"+expp2sig.replace(".","p")
             namem1sig = name+"_"+expm1sig.replace(".","p")
             namem2sig = name+"_"+expm2sig.replace(".","p")
-            absAcc = 0.00005
+            absAcc = 0.0005
 
             ext = "_frozenUpGiSis"
             '''
@@ -233,24 +245,26 @@ if __name__ == '__main__':
             
             run_combine_m2sig = "nice -n {} combine -H AsymptoticLimits -M HybridNew  -n .{} -d {}/{}.txt --expectedFromGrid={} --saveWorkspace --LHCmode LHC-limits -v 1 --rAbsAcc {} --adaptiveToys 1 -T {} &".format(nice_priority,name, input_dir, name2,expm2sig,absAcc,toy_number)
 
+            '''
             commands_combine = [run_combine_observed,]
             for command in commands_combine:
                 print(command)
                 os.system(command)
-          
             '''
+
             commands_combine = [run_combine_m2sig,run_combine_observed,run_combine_p1sig]
             for command in commands_combine:
+                print(command)
                 os.system(command)
             time.sleep(7200)
-
 
             commands_combine2 = [run_combine_p2sig,run_combine_m1sig,run_combine_median]
             for command in commands_combine2:
+                print(command)
                 os.system(command)
 
             time.sleep(7200)
-            '''
+
 
             
         if(options.limits == "Asymptotic"):
@@ -271,10 +285,10 @@ if __name__ == '__main__':
 
     ctr = 0
     for sample in samples:
-
+        '''
         if(ctr%4==0 and ctr!=0):
             time.sleep(2000)
-
+        '''
         ### For parallel running, use both following lines
         #t = Thread(target=task, args=(sample,))
         #t.start()
