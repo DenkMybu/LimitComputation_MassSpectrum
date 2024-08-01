@@ -134,16 +134,6 @@ if __name__ == '__main__':
         'tauPrime2e-400-ZPrimeSSM-5000_2018',
         'tauPrime2e-400-ZPrimeSSM-6000_2018',
         'tauPrime2e-400-ZPrimeSSM-7000_2018',
-        'tauPrime2e-600-ZPrime-3000_2018',
-        'tauPrime2e-600-ZPrime-4000_2018',
-        'tauPrime2e-600-ZPrime-5000_2018',
-        'tauPrime2e-600-ZPrime-6000_2018',
-        'tauPrime2e-600-ZPrime-7000_2018',
-        'tauPrime2e-600-ZPrimeSSM-3000_2018',
-        'tauPrime2e-600-ZPrimeSSM-4000_2018',
-        'tauPrime2e-600-ZPrimeSSM-5000_2018',
-        'tauPrime2e-600-ZPrimeSSM-6000_2018',
-        'tauPrime2e-600-ZPrimeSSM-7000_2018',
         'tauPrime2e-800-ZPrime-4000_2018',
         'tauPrime2e-800-ZPrime-5000_2018',
         'tauPrime2e-800-ZPrime-6000_2018',
@@ -183,7 +173,7 @@ if __name__ == '__main__':
         'tauPrime2e-1400-ZPrimeSSM-6000_2018',
         'tauPrime2e-1400-ZPrimeSSM-7000_2018',
     ]
-
+    '''
     samples = [
         'tauPrime2e-600-ZPrime-3000_2018',
         'tauPrime2e-600-ZPrime-4000_2018',
@@ -196,7 +186,7 @@ if __name__ == '__main__':
         'tauPrime2e-600-ZPrimeSSM-6000_2018',
         'tauPrime2e-600-ZPrimeSSM-7000_2018',
     ]
-
+    '''
 
     def task(sample):
         #name=sample+'lowSysTrigger'
